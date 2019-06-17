@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/smbms?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Abcdef9*
+    type: org.apache.commons.dbcp2.BasicDataSource
+    dbcp2:
+      initial-size: 5
+      max-idle: 50
+      min-idle: 45
+      max-wait-millis: 10000
+      remove-abandoned-timeout: 180
+
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      validation-query: select 1
+      num-tests-per-eviction-run: 100
+      time-between-eviction-runs-millis: 60000
+  thymeleaf: 
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    cache: false
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 20000
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: 1
+mybatis:
+  type-aliases-package: cn.smbms.pojo
+  mapper-locations: classpath:/mapper/*.xml
+server:
+  port: 8080

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: smbms-rest
+Implementation-Version: 1.0.0
+Built-By: Ro
+Implementation-Vendor-Id: cn.smbms
+Build-Jdk: 1.8.0_191
+Implementation-URL: http://projects.spring.io/spring-boot/smbms-rest/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

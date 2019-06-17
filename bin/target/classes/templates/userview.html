@@ -1,0 +1,42 @@
+ <div class="right" xmlns:th="http://www.thymeleaf.org">
+        <div class="location">
+            <strong>你现在所在的位置是:</strong>
+            <span>用户管理页面 >> 用户信息查看页面</span>
+        </div>
+        <div class="providerView">
+            <p><strong>用户编号：</strong><span th:text="${user.userCode }"></span></p>
+            <p><strong>用户名称：</strong><span th:text="${user.userName }"></span></p>
+            <p th:switch="${user.gender }"><strong>用户性别：</strong>
+            	<span th:case="'1'">
+            		男
+				</span>
+				<span th:case="'2'">
+					女
+				</span>
+			</p>
+            <p><strong>出生日期：</strong><span th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></span></p>
+            <p><strong>用户电话：</strong><span th:text="${user.phone }"></span></p>
+            <p><strong>用户地址：</strong><span th:text="${user.address }"></span></p>
+            <p><strong>用户角色：</strong><span th:text="${user.userRoleName}"></span></p>
+            <p><strong>个人证件照：</strong><span>
+            <th:block th:if="${user.idPicPath == null || user.idPicPath == ''}">
+            	暂无
+            </th:block>
+            <th:block th:unless="${user.idPicPath == null || user.idPicPath == ''}">
+            	<img src="${user.idPicPath}"/>
+            </th:block>
+            </span></p>            
+            <p><strong>工作证照片：</strong><span>
+            <th:block th:if="${user.workPicPath == null || user.workPicPath == ''}">
+            	暂无
+            </th:block>
+            <th:block th:unless="${user.workPicPath == null || user.workPicPath == ''}">
+            	<img src="${user.workPicPath}"/>
+            </th:block>
+            </span></p>
+			<div class="providerAddBtn">
+            	<input type="button" id="back" name="back" value="返回" >
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" th:src="${#httpServletRequest.getContextPath() + '/statics/js/userview.js'}"></script>
